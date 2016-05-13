@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.time.LocalDate;
@@ -24,6 +25,7 @@ import java.util.*;
  * Service class for managing users.
  */
 @Service
+@Transactional
 public class UserService {
 
     private final Logger log = LoggerFactory.getLogger(UserService.class);
@@ -163,6 +165,7 @@ public class UserService {
         });
     }
 
+    @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
         return userRepository.findOneByLogin(login).map(u -> {
             u.getAuthorities().size();
@@ -170,12 +173,14 @@ public class UserService {
         });
     }
 
-    public User getUserWithAuthorities(String id) {
+    @Transactional(readOnly = true)
+    public User getUserWithAuthorities(Long id) {
         User user = userRepository.findOne(id);
         user.getAuthorities().size(); // eagerly load the association
         return user;
     }
 
+    @Transactional(readOnly = true)
     public User getUserWithAuthorities() {
         User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
         user.getAuthorities().size(); // eagerly load the association
@@ -194,6 +199,8 @@ public class UserService {
         LocalDate now = LocalDate.now();
         persistentTokenRepository.findByTokenDateBefore(now.minusMonths(1)).stream().forEach(token -> {
             log.debug("Deleting token {}", token.getSeries());
+            User user = token.getUser();
+            user.getPersistentTokens().remove(token);
             persistentTokenRepository.delete(token);
         });
     }

@@ -3,14 +3,13 @@ services:
     fixmycity-app:
         image: fixmycity
         external_links:
-            - fixmycity-mongodb:mongodb
+            - fixmycity-mysql:mysql
         environment:
             - SPRING_PROFILES_ACTIVE=prod
-            - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
-            - SPRING_DATA_MONGODB_DATABASE=fixmycity
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/fixmycity?useUnicode=true&characterEncoding=utf8&useSSL=false
         ports:
             - 8080:8080
-    fixmycity-mongodb:
+    fixmycity-mysql:
         extends:
-            file: mongodb.yml
-            service: fixmycity-mongodb
+            file: mysql.yml
+            service: fixmycity-mysql

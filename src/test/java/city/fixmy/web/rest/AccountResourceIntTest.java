@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -141,6 +142,7 @@ public class AccountResourceIntTest {
     }
 
     @Test
+    @Transactional
     public void testRegisterValid() throws Exception {
         ManagedUserDTO validUser = new ManagedUserDTO(
             null,                   // id
@@ -168,6 +170,7 @@ public class AccountResourceIntTest {
     }
 
     @Test
+    @Transactional
     public void testRegisterInvalidLogin() throws Exception {
         ManagedUserDTO invalidUser = new ManagedUserDTO(
             null,                   // id
@@ -195,6 +198,7 @@ public class AccountResourceIntTest {
     }
 
     @Test
+    @Transactional
     public void testRegisterInvalidEmail() throws Exception {
         ManagedUserDTO invalidUser = new ManagedUserDTO(
             null,                   // id
@@ -222,6 +226,7 @@ public class AccountResourceIntTest {
     }
 
     @Test
+    @Transactional
     public void testRegisterInvalidPassword() throws Exception {
         ManagedUserDTO invalidUser = new ManagedUserDTO(
             null,                   // id
@@ -249,6 +254,7 @@ public class AccountResourceIntTest {
     }
 
     @Test
+    @Transactional
     public void testRegisterDuplicateLogin() throws Exception {
         // Good
         ManagedUserDTO validUser = new ManagedUserDTO(
@@ -289,6 +295,7 @@ public class AccountResourceIntTest {
     }
 
     @Test
+    @Transactional
     public void testRegisterDuplicateEmail() throws Exception {
         // Good
         ManagedUserDTO validUser = new ManagedUserDTO(
@@ -329,6 +336,7 @@ public class AccountResourceIntTest {
     }
 
     @Test
+    @Transactional
     public void testRegisterAdminIsIgnored() throws Exception {
         ManagedUserDTO validUser = new ManagedUserDTO(
             null,                   // id
@@ -358,6 +366,7 @@ public class AccountResourceIntTest {
     }
 
     @Test
+    @Transactional
     public void testSaveInvalidLogin() throws Exception {
         UserDTO invalidUser = new UserDTO(
             "funky-log!n",          // login <-- invalid

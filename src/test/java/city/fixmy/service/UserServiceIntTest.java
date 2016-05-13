@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -30,6 +31,7 @@ import static org.assertj.core.api.Assertions.*;
 @SpringApplicationConfiguration(classes = FixmycityApp.class)
 @WebAppConfiguration
 @IntegrationTest
+@Transactional
 public class UserServiceIntTest {
 
     @Inject
@@ -142,6 +144,6 @@ public class UserServiceIntTest {
         token.setTokenDate(localDate);
         token.setIpAddress("127.0.0.1");
         token.setUserAgent("Test agent");
-        persistentTokenRepository.save(token);
+        persistentTokenRepository.saveAndFlush(token);
     }
 }

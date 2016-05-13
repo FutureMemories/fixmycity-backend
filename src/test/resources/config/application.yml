@@ -13,11 +13,24 @@
 spring:
     application:
         name: fixmycity
-    data:
-        mongodb:
-            host: localhost
-            port: 27117
-            database: fixmycity
+    datasource:
+        url: jdbc:h2:mem:fixmycity;DB_CLOSE_DELAY=-1
+        name:
+        username:
+        password:
+    jpa:
+        database-platform: city.fixmy.domain.util.FixedH2Dialect
+        database: H2
+        open-in-view: false
+        show_sql: true
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
+        properties:
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+            hibernate.hbm2ddl.auto: validate
     mail:
         host: localhost
     mvc:
@@ -49,7 +62,7 @@ jhipster:
     security:
         rememberMe:
             # security key (this key should be unique for your application, and kept secret)
-            key: 79d4a833588d5fd41908d06b55c04b549d8d164e
+            key: 3c379a4dbb006f2cae4b65264c7112661b392a25
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
     swagger:

@@ -3,15 +3,15 @@ package city.fixmy.repository;
 import city.fixmy.domain.User;
 
 import java.time.ZonedDateTime;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Spring Data MongoDB repository for the User entity.
+ * Spring Data JPA repository for the User entity.
  */
-public interface UserRepository extends MongoRepository<User, String> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOneByActivationKey(String activationKey);
 
@@ -23,7 +23,7 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     Optional<User> findOneByLogin(String login);
 
-    Optional<User> findOneById(String userId);
+    Optional<User> findOneById(Long userId);
 
     @Override
     void delete(User t);

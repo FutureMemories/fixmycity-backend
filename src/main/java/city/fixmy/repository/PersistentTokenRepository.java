@@ -3,14 +3,14 @@ package city.fixmy.repository;
 import city.fixmy.domain.PersistentToken;
 import city.fixmy.domain.User;
 import java.time.LocalDate;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 /**
- * Spring Data MongoDB repository for the PersistentToken entity.
+ * Spring Data JPA repository for the PersistentToken entity.
  */
-public interface PersistentTokenRepository extends MongoRepository<PersistentToken, String> {
+public interface PersistentTokenRepository extends JpaRepository<PersistentToken, String> {
 
     List<PersistentToken> findByUser(User user);
 

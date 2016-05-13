@@ -1,0 +1,16 @@
+version: '2'
+services:
+    fixmycity-app:
+        image: fixmycity
+        external_links:
+            - fixmycity-mongodb:mongodb
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=fixmycity
+        ports:
+            - 8080:8080
+    fixmycity-mongodb:
+        extends:
+            file: mongodb.yml
+            service: fixmycity-mongodb

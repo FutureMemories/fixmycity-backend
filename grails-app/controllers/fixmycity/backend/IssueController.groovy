@@ -14,11 +14,11 @@ class IssueController extends RestfulController {
         def img = request.getFile('image')
         println(img.bytes)
 
-        def issue = new Issue(image : img.bytes)
+        def issue = new Issue(issueImage : img.bytes)
         issue.save()
 
 
-        def res = ["asd" : 1]
+        def res = ["asdddd" : 1]
         respond res
     }
 
@@ -27,6 +27,7 @@ class IssueController extends RestfulController {
     def index() {
         println("Listing")
         def issues = Issue.list()
+        println(issues.size())
         respond issues.collect { i ->
             def pos = ["long": i.position.longitude, "lat": i.position.latitude]
 

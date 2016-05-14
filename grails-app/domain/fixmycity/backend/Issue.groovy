@@ -11,8 +11,10 @@ class Issue {
 
     Location position
 
-    byte[] image
+
+    byte[] issueImage
 
     static constraints = {
+        issueImage(nullable: true)
     }
 }

@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Förslag",
+    "categories": []
+  },
+  {
+    "name": "Fråga",
+    "categories": []
+  },
+  {
+    "name": "Beröm",
+    "categories": []
+  },
+  {
+    "name": "Problem",
+    "categories": [
+      "Badplats",
+      "Belysning",
+      "Buller",
+      "Cykelbana",
+      "Gallerbrunn",
+      "Gatuunderhåll",
+      "Gräs",
+      "Hål i gatan",
+      "Klotter",
+      "Lekplats",
+      "Nedskräpning",
+      "Offentliga toaletter",
+      "Ogräs och sly",
+      "Parkering",
+      "Papperskorgar",
+      "Sand och grus",
+      "Skyltar och vägmärken",
+      "Trafiksignaler",
+      "Träd och buskar",
+      "Vinterväghållning",
+      "Vägarbeten",
+      "Annat problem"
+    ]
+  },
+  {
+    "name": "Skadat & trasigt",
+    "categories": [
+      "Belysning",
+      "Gallerbrunn",
+      "Hål i gatan",
+      "Klotter",
+      "Lekplats",
+      "Offentliga toaletter",
+      "Skyltar och vägmärken",
+      "Trafiksignaler",
+      "Träd och buskar"
+    ]
+  },
+  {
+    "name": "Renhållning",
+    "categories": [
+      "Klotter",
+      "Badplats",
+      "Cykelbana",
+      "Lekplats",
+      "Offentliga toaletter",
+      "Parkering",
+      "Papperskorgar"
+    ]
+  }
+]

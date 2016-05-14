@@ -34,7 +34,9 @@ class IssueController extends RestfulController {
     }
 
     def show() {
-        log.info("show")
+        log.error("show")
+        def a = [t: "t"]
+        respond a
     }
 
     def save() {

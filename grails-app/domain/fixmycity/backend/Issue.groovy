@@ -11,6 +11,7 @@ class Issue {
 
     Location position
 
+    byte[] image
 
     static constraints = {
     }

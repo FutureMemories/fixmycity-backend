@@ -56,7 +56,7 @@ class IssueController extends RestfulController {
             }
 
             if (i.issueImage != null && i.issueImage.length > 0) {
-                res["imageUrl"] = "http://192.81.222.241:8080/issues/" + i.id + "/image"
+                res["imageUrl"] = "http://192.81.222.241/issues/" + i.id + "/image"
             }
             return res
         }

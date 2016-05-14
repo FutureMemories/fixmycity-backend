@@ -20,7 +20,8 @@
 
     function initMap() {
 
-        var issues = <%=Issue.list().collect{it.position()}%>;
+
+        var issues = <%=Issue.list().collect{it.toJson()}%>;
 
         console.log(issues.length)
 
@@ -32,6 +33,7 @@
             center : myLatLng
         });
 
+
         for (i = 0; i < issues.length; i++) {
 
             var image = 'http://192.81.222.241/assets/problem.png';
@@ -39,12 +41,17 @@
             var marker = new google.maps.Marker({
                 position : {lat : issues[i].lat, lng : issues[i].lng},
                 map : map,
-                icon : image,
-                title : 'Hello World!'
+                icon : image
             });
+
 
             marker.addListener('click', function () {
                 console.log("Clicked!");
+                var contentString = "<div>AAA</div>"
+                var infowindow = new google.maps.InfoWindow({
+                    content : contentString
+                });
+                infowindow.open(map, marker);
 
             });
         }

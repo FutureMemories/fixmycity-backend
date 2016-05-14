@@ -20,7 +20,7 @@ class Issue {
 
     }
 
-    def position() {
-        return "{lat : ${latitude}, lng : ${longitude}}"
+    def toJson() {
+        return "{lat : ${latitude}, lng : ${longitude}, comment : '${comment}', type : '${issueType}', category : '${issueCategory}', imageUrl : 'http://192.81.222.241/issues/${id}/image'}"
     }
 }

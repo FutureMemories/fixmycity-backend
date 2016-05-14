@@ -63,4 +63,14 @@ class IssueController extends RestfulController {
 
     }
 
+    def update() {
+        log.info("update")
+    }
+
+    def show() {
+        def issue = Issue.get(params.id)
+        log.error("issue: " + issue + " / id:" + params.id)
+        respond issue
+    }
+
 }

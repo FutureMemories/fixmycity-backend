@@ -14,6 +14,15 @@ class UrlMappings {
             format = "json"
         }
 
+        "/issues/$id"(controller: 'issue') {
+            action = [GET: 'show']
+            format = "json"
+        }
+
+        "/issues/$id/image"(controller: 'image') {
+            action = [GET: 'get']
+        }
+
 
 
         //"/discover"(version: '1.0.0', controller: 'discover', action: 'index', namespace: 'v1')

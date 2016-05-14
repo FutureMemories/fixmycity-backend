@@ -42,7 +42,7 @@ class ImageController {
             it.delete()
         }
 
-        final def images = ["sample/bench.jpg", "sample/bikelane.jpg", "sample/slottskogen.jpg", "sample/wrongturn.jpg", "sample/elskap.jpg"]
+        final def images = ["/tmp/bench.jpg", "/tmp/bikelane.jpg", "/tmp/slottskogen.jpg", "/tmp/wrongturn.jpg", "/tmp/elskap.jpg"]
         final def types = ["Problem", "Fråga", "Beröm"]
 
         def comments = [
@@ -76,8 +76,7 @@ class ImageController {
 
             log.error("Using image: $image, type: $type")
 
-            def resource = this.class.classLoader.getResource('sample/bench.jpg')
-            def file = new File(resource.file)
+            def file = new File(image)
 
             new Issue(issueType: type,
                     issueCategory: "Annat problem",

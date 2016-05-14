@@ -19,4 +19,8 @@ class Issue {
         comment(nullable: true)
 
     }
+
+    def position() {
+        return "{lat : ${latitude}, lng : ${longitude}}"
+    }
 }

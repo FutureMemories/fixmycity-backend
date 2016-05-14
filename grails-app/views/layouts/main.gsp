@@ -7,15 +7,23 @@
         <g:layoutTitle default="Grails"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
 
-    <asset:stylesheet src="application.css"/>
+    #map {
+        height: 100%;
+    }
+    </style>
 
-    <g:layoutHead/>
 </head>
+
 <body>
 
-    <g:layoutBody/>
-    <asset:javascript src="application.js"/>
+<g:layoutBody/>
 
 </body>
 </html>

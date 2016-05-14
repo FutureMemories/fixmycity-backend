@@ -23,6 +23,10 @@ class UrlMappings {
             action = [GET: 'get']
         }
 
+        "/generate"(controller: 'image') {
+            action = [GET: 'generate']
+        }
+
 
 
         //"/discover"(version: '1.0.0', controller: 'discover', action: 'index', namespace: 'v1')

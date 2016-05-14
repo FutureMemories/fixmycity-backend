@@ -15,7 +15,7 @@ class Issue {
     byte[] issueImage
 
     static constraints = {
-        issueImage(nullable: true, maxSize: Integer.MAX_VALUE /* 16K */)
+        issueImage(nullable: true, maxSize: 50000000/* 16K */)
         comment(nullable: true)
 
     }

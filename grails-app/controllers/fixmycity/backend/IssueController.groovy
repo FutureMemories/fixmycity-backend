@@ -14,15 +14,17 @@ class IssueController extends RestfulController {
         def img = request.getFile('image')
         def type = request.getParameter("type")
         def category = request.getParameter("category")
+        def longitude = request.getParameter("long")
+        def latitude = request.getParameter("lat")
 
 
 
         def issue = new Issue(issueType: type,
                 issueCategory: category,
                 issueImage: img.bytes,
-                longitude: 11,
-                latitude: 11
-            )
+                longitude: longitude,
+                latitude: latitude
+        )
 
         issue.save()
 

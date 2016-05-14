@@ -4,4 +4,4 @@
 build
 .gradle
 out
-*.warxa
+build/*

@@ -1,7 +1,5 @@
 package fixmycity.backend
-
 import grails.rest.RestfulController
-import org.springframework.http.HttpStatus
 
 class IssueController extends RestfulController {
     static responseFormats = ['json', 'xml']
@@ -10,8 +8,9 @@ class IssueController extends RestfulController {
     }
 
     def index() {
+        def issues = Issue.list()
 
-        respond Issue.list()
+        respond issues
     }
 
     def update() {

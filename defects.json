@@ -1,0 +1,32 @@
+[
+  {
+    "type": "Problem",
+    "category": "Annat problem",
+    "comment": "Bänken är monterad på fel håll",
+    "image": "https://www.dropbox.com/s/kuar74m55whgrlk/bench.jpg?dl=0",
+    "position": {
+      "lat": 57.70350521,
+      "long": 11.97080612
+    }
+  },
+  {
+    "type": "Problem",
+    "category": "Nedskräpning",
+    "comment": "Nedskräpning i slottsskogen",
+    "image": "https://www.dropbox.com/s/0awj2lok1wvqau3/slottskogen.jpg?dl=0",
+    "position": {
+      "lat": 57.6875885,
+      "long": 11.94316864
+    }
+  },
+  {
+    "type": "Problem",
+    "category": "Skyltar och vägmärken",
+    "comment": "Pelar mitt på cykelvägen",
+    "image": "https://www.dropbox.com/s/8gjubzvib6nboah/bikelane.jpg?dl=0",
+    "position": {
+      "lat": 57.70680693,
+      "long": 11.98462486
+    }
+  }
+]

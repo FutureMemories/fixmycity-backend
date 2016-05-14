@@ -3,12 +3,13 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>FixMyCity <%="Hello GSP!"%></title>
+    <title>FixMyCity</title>
 
 </head>
 
 <body>
 
+<br><br>
 <!--<center>
     <asset:image src="1 Splash.png" class="grails-logo"/>
 </center>-->
@@ -24,8 +25,6 @@
         console.log(issues.length)
 
 
-
-
         var myLatLng = {lat : 57.709, lng : 11.97456};
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -35,13 +34,18 @@
 
         for (i = 0; i < issues.length; i++) {
 
-            var image = 'http://192.81.222.241:8080/assets/problem.png';
+            var image = 'http://192.81.222.241/assets/problem.png';
 
-            new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 position : {lat : issues[i].lat, lng : issues[i].lng},
                 map : map,
-                icon: image,
+                icon : image,
                 title : 'Hello World!'
+            });
+
+            marker.addListener('click', function () {
+                console.log("Clicked!");
+
             });
         }
     }

@@ -9,16 +9,26 @@ class IssueController extends RestfulController {
         super(Issue)
     }
 
+    def save() {
+
+        def img = request.getFile('image')
+        println(img.bytes)
+
+        def issue = new Issue(image : img.bytes)
+        issue.save()
+
+
+        def res = ["asd" : 1]
+        respond res
+    }
+
+
+
     def index() {
+        println("Listing")
         def issues = Issue.list()
-
-
-
-
-
         respond issues.collect { i ->
-
-            def pos = ["long": i.position.longitude, "lat" : i.position.latitude]
+            def pos = ["long": i.position.longitude, "lat": i.position.latitude]
 
             ["type"    : i.issueType,
              "category": i.issueCategory,
@@ -34,13 +44,9 @@ class IssueController extends RestfulController {
     }
 
     def show() {
-        log.error("show")
-        def a = [t: "t"]
-        respond a
-    }
-
-    def save() {
-        log.info("save")
+        def issue = Issue.get(params.id)
+        log.error("issue: " + issue + " / id:" + params.id)
+        respond issue
     }
 
 }

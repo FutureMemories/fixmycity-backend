@@ -9,12 +9,14 @@ class Issue {
 
     String comment
 
-    Location position
-
+    Float longitude
+    Float latitude
 
     byte[] issueImage
 
     static constraints = {
-        issueImage(nullable: true)
+        issueImage(nullable: true, maxSize: 16384000 /* 16K */)
+        comment(nullable: true)
+
     }
 }
